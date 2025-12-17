@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гостиница «Космос»</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .header {
+            background: #1e3c72;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1rem 0;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 1rem;
+            background: #f0f0f0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: #e74c3c;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin: 1rem 0;
+        }
+
+        .section {
+            padding: 3rem 1rem;
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .card {
+            width: 300px;
+            padding: 1.5rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        @media (max-width: 600px) {
+            .nav {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <h1>Гостиница «Космос»</h1>
+        <nav class="nav">
+            <a href="#rooms">Номера</a>
+            <a href="#services">Услуги</a>
+            <a href="#contact">Контакты</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Комфорт в центре города</h2>
+        <p>1777 номеров, ресторан, фитнес‑центр, бассейн</p>
+        <a href="#booking" class="btn">Забронировать</a>
+    </section>
+
+    <section id="rooms" class="section">
+        <h2>Номера</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>Стандарт</h3>
+                <p>От 2 600 руб/сутки</p>
+            </div>
+            <div class="card">
+                <h3>Полулюкс</h3>
+                <p>От 4 400 руб/сутки</p>
+            </div>
+            <div class="card">
+                <h3>Люкс</h3>
+                <p>От 4 960 руб/сутки</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section">
+        <h2>Услуги</h2>
+        <ul>
+            <li>Wi‑Fi</li>
+            <li>Фитнес‑центр с бассейном</li>
+            <li>Ресторан</li>
+            <li>Парковка</li>
+        </ul>
+    </section>
+
+    <section id="contact" class="section">
+        <h2>Контакты</h2>
+        <p>Проспект Мира, 150, Москва</p>
+        <p>Тел.: 8 800 707‑77‑64</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Гостиница «Космос». Все права защищены.</p>
+    </footer>
+</body>
+
+</html>
