@@ -369,3 +369,222 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal:target {
+    display: flex;
+}
+
+.modal-content {
+    background-color: #0a0e2a;
+    border: 2px solid #4a9eff;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    padding: 30px;
+    position: relative;
+    animation: modalAppear 0.3s ease-out;
+    box-shadow: 0 0 50px rgba(74, 158, 255, 0.3);
+}
+
+@keyframes modalAppear {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    color: #4a9eff;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s;
+    background: none;
+    border: none;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-btn:hover {
+    color: #2d8aff;
+}
+
+.modal h2 {
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+.room-info {
+    background-color: rgba(74, 158, 255, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    color: #4a9eff;
+    text-align: center;
+    border-left: 4px solid #4a9eff;
+}
+
+/* Стили для формы */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: white;
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid rgba(74, 158, 255, 0.3);
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #4a9eff;
+    box-shadow: 0 0 10px rgba(74, 158, 255, 0.3);
+}
+
+.form-group input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #4a9eff, #2d8aff);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(135deg, #2d8aff, #4a9eff);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(74, 158, 255, 0.4);
+}
+
+/* Стили для сообщения об успешном бронировании */
+.success-message {
+    display: none;
+    text-align: center;
+    padding: 40px 20px;
+    color: white;
+}
+
+.success-message i {
+    font-size: 60px;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+.success-message h3 {
+    color: #4CAF50;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.success-message p {
+    margin-bottom: 10px;
+    opacity: 0.9;
+}
+
+/* Делаем карточки номеров кликабельными */
+.room-card {
+    cursor: pointer;
+    position: relative;
+}
+
+.room-card::after {
+    content: 'Нажмите для бронирования';
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #4a9eff;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.room-card:hover::after {
+    opacity: 1;
+}
+
+/* Адаптивность для модального окна */
+@media (max-width: 768px) {
+    .modal-content {
+        padding: 20px;
+        margin: 20px;
+    }
+
+    .modal h2 {
+        font-size: 24px;
+    }
+
+    .form-group input,
+    .form-group select {
+        padding: 10px 12px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        padding: 15px;
+        margin: 10px;
+    }
+
+    .modal h2 {
+        font-size: 22px;
+    }
+
+    .room-info {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
