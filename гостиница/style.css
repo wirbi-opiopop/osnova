@@ -507,84 +507,119 @@ body {
     box-shadow: 0 5px 15px rgba(74, 158, 255, 0.4);
 }
 
-/* Стили для сообщения об успешном бронировании */
-.success-message {
-    display: none;
+.book-btn {
+    display: block;
+    margin-top: 20px;
     text-align: center;
-    padding: 40px 20px;
-    color: white;
+    width: 100%;
 }
 
-.success-message i {
-    font-size: 60px;
-    color: #4CAF50;
-    margin-bottom: 20px;
+/* Страница бронирования */
+.booking-page {
+    background-color: #0a0e2a;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-.success-message h3 {
-    color: #4CAF50;
-    margin-bottom: 15px;
-    font-size: 24px;
+.booking-container {
+    max-width: 800px;
+    margin: 100px auto 50px;
+    padding: 0 20px;
+    flex: 1;
 }
 
-.success-message p {
-    margin-bottom: 10px;
-    opacity: 0.9;
-}
-
-/* Делаем карточки номеров кликабельными */
-.room-card {
-    cursor: pointer;
-    position: relative;
-}
-
-.room-card::after {
-    content: 'Нажмите для бронирования';
-    position: absolute;
-    bottom: 15px;
-    left: 0;
-    right: 0;
+.booking-header {
     text-align: center;
+    margin-bottom: 40px;
+}
+
+.booking-header h2 {
     color: #4a9eff;
-    font-size: 14px;
-    opacity: 0;
-    transition: opacity 0.3s;
+    font-size: 36px;
+    margin-bottom: 10px;
 }
 
-.room-card:hover::after {
-    opacity: 1;
+.booking-header p {
+    color: #ffd700;
+    font-size: 24px;
+    font-weight: bold;
 }
 
-/* Адаптивность для модального окна */
-@media (max-width: 768px) {
-    .modal-content {
-        padding: 20px;
-        margin: 20px;
-    }
-
-    .modal h2 {
-        font-size: 24px;
-    }
-
-    .form-group input,
-    .form-group select {
-        padding: 10px 12px;
-        font-size: 16px;
-    }
+.booking-form-wrapper {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 40px;
+    border: 2px solid rgba(74, 158, 255, 0.3);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
 }
 
-@media (max-width: 480px) {
-    .modal-content {
-        padding: 15px;
-        margin: 10px;
-    }
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #4a9eff;
+    text-decoration: none;
+    margin-bottom: 30px;
+    transition: color 0.3s;
+}
 
-    .modal h2 {
-        font-size: 22px;
-    }
+.back-link:hover {
+    color: #2d8aff;
+}
 
-    .room-info {
-        padding: 10px;
-        font-size: 14px;
-    }
+.room-details {
+    background-color: rgba(74, 158, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    border-left: 4px solid #4a9eff;
+}
+
+.room-details h3 {
+    color: #4a9eff;
+    margin-bottom: 15px;
+}
+
+.room-details ul {
+    list-style: none;
+    color: #e0e0e0;
+}
+
+.room-details li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.room-details li:last-child {
+    border-bottom: none;
+}
+
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid rgba(74, 158, 255, 0.3);
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    transition: border-color 0.3s;
+    resize: vertical;
+    min-height: 100px;
+}
+
+.form-group textarea:focus {
+    outline: none;
+    border-color: #4a9eff;
+    box-shadow: 0 0 10px rgba(74, 158, 255, 0.3);
+}
+
+.form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.booking-form {
+    max-width: 600px;
+    margin: 0 auto;
 }

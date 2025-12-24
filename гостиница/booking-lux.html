@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бронирование номера Люкс | Гостиница "Космос"</title>
+   
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="booking-page">
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-rocket"></i>
+                <h1>Космос</h1>
+            </div>
+            <nav class="nav">
+                <a href="index.html#home">Главная</a>
+                <a href="index.html#services">О нас</a>
+                <a href="index.html#rooms">Номера</a>
+                <a href="index.html#contacts">Контакты</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="booking-container">
+        <a href="index.html#rooms" class="back-link">
+            <i class="fas fa-arrow-left"></i> Вернуться к выбору номеров
+        </a>
+
+        <div class="booking-header">
+            <h2>Бронирование номера "Люкс"</h2>
+            <p>от 5 000 ₽ / ночь</p>
+        </div>
+
+        <div class="booking-form-wrapper">
+            <div class="room-details">
+                <h3>Включено в номер:</h3>
+                <ul>
+                    <li>Просторный номер</li>
+                    <li>Панорамные окна</li>
+                    <li>Джакузи</li>
+                    <li>Бесплатный Wi-Fi</li>
+                    <li>Завтрак "шведский стол"</li>
+                    <li>Мини-бар (первая пополнение бесплатно)</li>
+                    <li>Халаты и тапочки</li>
+                </ul>
+            </div>
+
+            <form class="booking-form" action="#" method="POST">
+                <div class="form-group">
+                    <label for="fullname">ФИО</label>
+                    <input type="text" id="fullname" name="fullname" placeholder="Введите ваше полное имя" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Телефон</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+7 (999) 123-45-67" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Электронная почта</label>
+                    <input type="email" id="email" name="email" placeholder="example@mail.ru" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="checkin">Дата заезда</label>
+                    <input type="date" id="checkin" name="checkin" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="checkout">Дата выезда</label>
+                    <input type="date" id="checkout" name="checkout" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="guests">Количество гостей</label>
+                    <select id="guests" name="guests" required>
+                        <option value="">Выберите количество</option>
+                        <option value="1">1 гость</option>
+                        <option value="2" selected>2 гостя</option>
+                        <option value="3">3 гостя</option>
+                        <option value="4">4 гостя</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="submit-btn">Забронировать номер</button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Гостиница "Космос"</h3>
+                    <p>Ваш идеальный отдых среди звезд</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <p><i class="fas fa-map-marker-alt"></i> г. Москва, ул. Космическая, 15</p>
+                    <p><i class="fas fa-phone"></i> +7 (495) 123-45-67</p>
+                    <p><i class="fas fa-envelope"></i> info@cosmos-hotel.ru</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Социальные сети</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; Гостиница "Космос". Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
