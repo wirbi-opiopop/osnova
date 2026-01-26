@@ -796,3 +796,34 @@ body {
     max-width: 600px;
     margin: 0 auto;
 }
+
+/* Обновляем правило для smooth scroll отступов */
+.about,
+.rooms,
+.testimonials,
+.footer {
+    scroll-margin-top: 100px;
+    /* Увеличиваем отступ для шапки */
+}
+
+/* Добавляем активное состояние для навигации */
+.nav a.active {
+    color: #4a9eff;
+    font-weight: bold;
+}
+
+.nav a.active::after {
+    width: 100%;
+}
+
+/* Обновляем медиа-запрос для мобильных */
+@media (max-width: 768px) {
+
+    .about,
+    .rooms,
+    .testimonials,
+    .footer {
+        scroll-margin-top: 120px;
+        /* Больший отступ для мобильных */
+    }
+}
