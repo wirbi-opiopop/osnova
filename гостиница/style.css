@@ -827,3 +827,48 @@ body {
         /* Больший отступ для мобильных */
     }
 }
+
+
+.location {
+    padding: 60px 0;
+    background: linear-gradient(135deg, rgba(10, 14, 42, 0.9), rgba(26, 35, 126, 0.9));
+}
+
+.map-wrapper {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.map-overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(10, 14, 42, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 300px;
+    border: 1px solid rgba(74, 158, 255, 0.3);
+}
+
+.map-overlay h3 {
+    color: #4a9eff;
+    margin-bottom: 10px;
+}
+
+.map-overlay p {
+    color: #e0e0e0;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.map-btn {
+    margin-top: 15px;
+    background: rgba(74, 158, 255, 0.2);
+    border: 1px solid #4a9eff;
+}
+
+.map-btn:hover {
+    background: #4a9eff;
+}
