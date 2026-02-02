@@ -229,4 +229,18 @@
         });
     });
 </script>
+
+<script>
+    // Эффект для header при скролле
+    window.addEventListener('scroll', function () {
+        const header = document.querySelector('.header');
+        if (window.scrollY > 100) {
+            header.classList.add('scrolled');
+            document.body.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+            document.body.classList.remove('scrolled');
+        }
+    });
+</script>
 </html>
