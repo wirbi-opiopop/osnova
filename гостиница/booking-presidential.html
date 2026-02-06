@@ -134,5 +134,35 @@
         </div>
     </footer>
 </body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const checkinInput = document.getElementById('checkin');
+        const checkoutInput = document.getElementById('checkout');
 
+        // Устанавливаем текущую дату как минимальную для заезда
+        const today = new Date().toISOString().split('T')[0];
+        checkinInput.min = today;
+
+        // При изменении даты заезда обновляем минимальную дату выезда
+        checkinInput.addEventListener('change', function () {
+            if (this.value) {
+                const checkinDate = new Date(this.value);
+                const nextDay = new Date(checkinDate);
+                nextDay.setDate(checkinDate.getDate() + 1);
+
+                checkoutInput.min = nextDay.toISOString().split('T')[0];
+
+                // Если текущая дата выезда раньше новой минимальной, сбрасываем ее
+                if (checkoutInput.value && checkoutInput.value < checkoutInput.min) {
+                    checkoutInput.value = '';
+                }
+            }
+        });
+
+        // Инициализируем минимальную дату выезда (завтра)
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        checkoutInput.min = tomorrow.toISOString().split('T')[0];
+    });
+    </script>
 </html>
