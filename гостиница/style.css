@@ -987,3 +987,121 @@ body {
         opacity: 1;
     }
 }
+
+
+/* Стили для уведомления о бронировании */
+.booking-notification {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #4a9eff, #2d8aff);
+    color: white;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 400px;
+    z-index: 10000;
+    box-shadow: 0 10px 30px rgba(74, 158, 255, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: slideInRight 0.5s ease-out;
+    backdrop-filter: blur(10px);
+}
+
+.booking-notification.show {
+    display: block;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+.booking-notification.hide {
+    animation: slideOutRight 0.5s ease-out forwards;
+}
+
+.notification-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    position: relative;
+}
+
+.notification-content i {
+    font-size: 24px;
+    color: #4caf50;
+    margin-top: 5px;
+}
+
+.notification-content h3 {
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.notification-content p {
+    font-size: 14px;
+    opacity: 0.9;
+    margin: 0;
+}
+
+.notification-close {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.notification-close:hover {
+    background: rgba(0, 0, 0, 0.7);
+    transform: scale(1.1);
+}
+
+/* Пульсация кнопки после успешного бронирования */
+.submit-btn.booked {
+    background: linear-gradient(135deg, #2E7D32, #4CAF50);
+    animation: pulse-success 0.5s ease;
+}
+
+@keyframes pulse-success {
+    0% {
+        box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(76, 175, 80, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
+    }
+}
