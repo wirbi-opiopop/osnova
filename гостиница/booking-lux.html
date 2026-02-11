@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+< lang="ru">
 
 <head>
     <meta charset="UTF-8">
@@ -123,6 +123,16 @@
             </div>
         </div>
     </footer>
+    <div id="bookingNotification" class="booking-notification">
+        <div class="notification-content">
+            <i class="fas fa-check-circle"></i>
+            <div>
+                <h3>Номер забронирован!</h3>
+                <p>Спасибо за бронирование. Мы свяжемся с вами в ближайшее время для подтверждения.</p>
+            </div>
+            <button class="notification-close">&times;</button>
+        </div>
+    </div>
 </body>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -154,5 +164,74 @@
         tomorrow.setDate(tomorrow.getDate() + 1);
         checkoutInput.min = tomorrow.toISOString().split('T')[0];
     });
-</script>
+    // Обработка формы бронирования
+        const bookingForm = document.querySelector('.booking-form');
+        const submitBtn = document.querySelector('.submit-btn');
+        const notification = document.getElementById('bookingNotification');
+        const closeNotificationBtn = document.querySelector('.notification-close');
+
+        if (bookingForm && submitBtn && notification) {
+            bookingForm.addEventListener('submit', function (e) {
+                e.preventDefault(); // Предотвращаем отправку формы (так как action="#")
+
+                // Показываем уведомление
+                notification.classList.remove('hide');
+                notification.classList.add('show');
+
+                // Добавляем эффект успешного бронирования на кнопку
+                submitBtn.classList.add('booked');
+                submitBtn.innerHTML = '<i class="fas fa-check"></i> Забронировано!';
+
+                // Блокируем кнопку и поля формы
+                submitBtn.disabled = true;
+                const formInputs = this.querySelectorAll('input, select, textarea');
+                formInputs.forEach(input => {
+                    input.disabled = true;
+                });
+
+                // Сохраняем данные формы в localStorage (опционально)
+                const formData = new FormData(this);
+                const bookingData = {
+                    fullname: formData.get('fullname'),
+                    checkin: formData.get('checkin'),
+                    checkout: formData.get('checkout'),
+                    guests: formData.get('guests'),
+                    timestamp: new Date().toISOString()
+                };
+                localStorage.setItem('lastBooking', JSON.stringify(bookingData));
+
+                // Автоматически скрываем уведомление через 5 секунд
+                setTimeout(() => {
+                    hideNotification();
+                }, 5000);
+
+                // Прокручиваем страницу к уведомлению
+                notification.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
+        }
+
+        // Закрытие уведомления
+        if (closeNotificationBtn) {
+            closeNotificationBtn.addEventListener('click', hideNotification);
+        }
+
+        // Функция для скрытия уведомления
+        function hideNotification() {
+            if (notification.classList.contains('show')) {
+                notification.classList.add('hide');
+                setTimeout(() => {
+                    notification.classList.remove('show', 'hide');
+                }, 500);
+            }
+        }
+
+        // Закрытие уведомления при клике вне его области
+        document.addEventListener('click', function (e) {
+            if (notification.classList.contains('show') &&
+                !notification.contains(e.target) &&
+                e.target !== submitBtn) {
+                hideNotification();
+            }
+        });
+    </script>
 </html>
