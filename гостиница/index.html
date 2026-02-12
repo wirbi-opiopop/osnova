@@ -101,31 +101,56 @@
         <section id="testimonials" class="testimonials">
             <div class="container">
                 <h2>Отзывы гостей</h2>
-                <div class="testimonials-grid">
-                    <div class="testimonial-card">
-                        <div class="stars">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                class="fas fa-star"></i><i class="fas fa-star"></i>
+        
+                <div class="testimonials-slider">
+                    <!-- Слайд 1 -->
+                    <div class="testimonial-slide active">
+                        <div class="testimonial-card">
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p>"Незабываемый опыт! Вид из окна просто космический."</p>
+                            <span class="author">- Анна П.</span>
                         </div>
-                        <p>"Незабываемый опыт! Вид из окна просто космический."</p>
-                        <span class="author">- Анна П.</span>
                     </div>
-                    <div class="testimonial-card">
-                        <div class="stars">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    <!-- Слайд 2 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <p>"СПА-центр на высшем уровне. Вернемся обязательно!"</p>
+                            <span class="author">- Игорь С.</span>
                         </div>
-                        <p>"СПА-центр на высшем уровне. Вернемся обязательно!"</p>
-                        <span class="author">- Игорь С.</span>
                     </div>
-                    <div class="testimonial-card">
-                        <div class="stars">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <!-- Слайд 3 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <div class="stars">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p>"Отличный сервис, персонал очень внимательный. Номера чистые и уютные."</p>
+                            <span class="author">- Мария К.</span>
                         </div>
-                        <p>"Отличный сервис, персонал очень внимательный. Номера чистые и уютные."</p>
-                        <span class="author">- Мария К.</span>
                     </div>
+                </div>
+        
+                <!-- Кнопки управления -->
+                <button class="slider-btn prev-btn" aria-label="Предыдущий отзыв">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="slider-btn next-btn" aria-label="Следующий отзыв">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+        
+                <!-- Индикаторы (точки) -->
+                <div class="slider-dots">
+                    <span class="dot active" data-index="0"></span>
+                    <span class="dot" data-index="1"></span>
+                    <span class="dot" data-index="2"></span>
                 </div>
             </div>
         </section>
@@ -243,5 +268,64 @@
             document.body.classList.remove('scrolled');
         }
     });
+
+    
+            document.addEventListener('DOMContentLoaded', function() {
+        const slides = document.querySelectorAll('.testimonial-slide');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+            const dots = document.querySelectorAll('.dot');
+            let currentIndex = 0;
+            const totalSlides = slides.length;
+
+            // Функция показа слайда по индексу
+            function showSlide(index) {
+            // Зацикливание
+            if (index < 0) index = totalSlides - 1;
+            if (index >= totalSlides) index = 0;
+
+            // Скрываем все слайды и убираем активные точки
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+
+            // Показываем текущий слайд и активируем точку
+            slides[index].classList.add('active');
+            if (dots[index]) dots[index].classList.add('active');
+
+            currentIndex = index;
+        }
+
+            // Обработчики кнопок
+            if (prevBtn) {
+                prevBtn.addEventListener('click', function () {
+                    showSlide(currentIndex - 1);
+                });
+        }
+
+            if (nextBtn) {
+                nextBtn.addEventListener('click', function () {
+                    showSlide(currentIndex + 1);
+                });
+        }
+
+        // Обработчики точек
+        dots.forEach((dot, index) => {
+                dot.addEventListener('click', function () {
+                    showSlide(index);
+                });
+        });
+
+        // Автоматическое переключение (опционально) — раскомментируйте, если нужно
+        // let autoPlay = setInterval(() => showSlide(currentIndex + 1), 5000);
+        // Остановка автопереключения при наведении на слайдер
+        // const slider = document.querySelector('.testimonials-slider');
+        // if (slider) {
+                //     slider.addEventListener('mouseenter', () => clearInterval(autoPlay));
+                //     slider.addEventListener('mouseleave', () => {
+                //         autoPlay = setInterval(() => showSlide(currentIndex + 1), 5000);
+                //     });
+                // }
+            });
+    
 </script>
 </html>
