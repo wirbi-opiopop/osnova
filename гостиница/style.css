@@ -1218,3 +1218,127 @@ body {
     display: none;
     /* скрываем старую сетку */
 }
+/* ===== Секция "Наши преимущества" ===== */
+.features {
+    padding: 60px 0;
+    background: rgba(10, 14, 42, 0.8);
+    backdrop-filter: blur(5px);
+    scroll-margin-top: 100px;
+}
+
+.features h2 {
+    text-align: center;
+    color: white;
+    margin-bottom: 50px;
+    font-size: 32px;
+    position: relative;
+}
+
+.features h2::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #4a9eff, #2d8aff);
+    border-radius: 2px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+}
+
+.feature-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(74, 158, 255, 0.2);
+    border-radius: 15px;
+    padding: 30px 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.feature-item:hover {
+    background: rgba(74, 158, 255, 0.1);
+    border-color: rgba(74, 158, 255, 0.5);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(74, 158, 255, 0.2);
+}
+
+.feature-item i {
+    font-size: 48px;
+    color: #4a9eff;
+    margin-bottom: 20px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.feature-item:hover i {
+    transform: scale(1.15);
+    color: #7bb3ff;
+}
+
+.feature-item h3 {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.feature-item p {
+    color: #e0e0e0;
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Анимация появления */
+.feature-item {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.feature-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.feature-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.feature-item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.feature-item:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+    .features {
+        padding: 40px 0;
+        scroll-margin-top: 120px;
+    }
+
+    .features h2 {
+        font-size: 28px;
+        margin-bottom: 40px;
+    }
+
+    .features-grid {
+        gap: 20px;
+    }
+
+    .feature-item {
+        padding: 25px 15px;
+    }
+
+    .feature-item i {
+        font-size: 40px;
+    }
+}
